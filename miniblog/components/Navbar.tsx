@@ -7,10 +7,12 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 import Link from 'next/link';
+import { useContext } from "react";
+import { UserContext } from "../lib/context";
 
 const Navbar = () => {
-  const user = null;
-  const username = null;
+
+  const { user, username } = useContext(UserContext);
 
   return (
     <Box 
@@ -30,14 +32,14 @@ const Navbar = () => {
         </Link>
         {/* user is signed-in and has a username*/}
         {username && (
-          <>
+          <HStack>
             <Link href="/admin" passHref>
               <Button colorScheme="teal">Write Posts</Button>
             </Link>
             <Link href={`/${username}`}>
-              <Image src={user?.photoURL} alt="Profile Pic"/>
+              <Image boxSize={10} src={user?.photoURL} alt="Profile Pic"/>
             </Link>
-          </>
+          </HStack>
         )}
 
         {/* user is not signed OR has not created a username*/}
