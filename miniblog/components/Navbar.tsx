@@ -36,7 +36,7 @@ const Navbar = () => {
             <Link href="/admin" passHref>
               <Button colorScheme="teal">Write Posts</Button>
             </Link>
-            <Link href={`/${username}`}>
+           <Link href={`/${username}`}>
               <Image boxSize={10} src={user?.photoURL} alt="Profile Pic"/>
             </Link>
           </HStack>
